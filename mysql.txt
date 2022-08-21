@@ -60,3 +60,17 @@ mysql> Insert into employee_payroll(name,salary,start)values
     -> ('Aishwarya',30000.0,'2019-09-05');
 Query OK, 3 rows affected (1.66 sec)
 Records: 3  Duplicates: 0  Warnings: 0
+
+-----------------------------------------------------------------------------------
+UC4 -> Retrieved all employee data from table employee_payroll of payroll_service database
+------------------------------------------------------------------------------------
+
+mysql> select * from employee_payroll;
++----+-------------+--------+------------+
+| id | name        | salary | start      |
++----+-------------+--------+------------+
+|  1 | Bhagyashree |  15000 | 2017-06-07 |
+|  2 | Basavaraj   |  20000 | 2018-10-08 |
+|  3 | Aishwarya   |  30000 | 2019-09-05 |
++----+-------------+--------+------------+
+3 rows in set (0.19 sec)
