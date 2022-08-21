@@ -289,10 +289,49 @@ mysql> select * from employee_payroll;
 +----+-------------+-------------+---------+------------+--------+--------+------------+
 3 rows in set (0.01 sec)
 
+------------------------------------------------------------------------------------------------------------
+UC9 -> Ability to extend employee_payroll table to have basic pay,deductions,Taxable pay, income tax,net pay 
+------------------------------------------------------------------------------------------------------------
 
 
+mysql> alter table employee_payroll rename column salary to basic_pay;
+Query OK, 0 rows affected (41.70 sec)
+Records: 0  Duplicates: 0  Warnings: 0
 
+mysql> alter table employee_payroll add deduction double not null after basic_pay;
+Query OK, 0 rows affected (0.72 sec)
+Records: 0  Duplicates: 0  Warnings: 0
 
+mysql> alter table employee_payroll add taxable_pay double not null after deduction;
+Query OK, 0 rows affected (0.34 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add income_tax double not null after taxable_pay;
+Query OK, 0 rows affected (0.46 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add net_pay double not null after income_tax;
+Query OK, 0 rows affected (12.48 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe employee_payroll;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name        | varchar(160) | NO   |     | NULL    |                |
+| phonenumber | varchar(230) | YES  |     | NULL    |                |
+| address     | varchar(250) | YES  |     | TBD     |                |
+| department  | varchar(250) | NO   |     | NULL    |                |
+| gender      | char(1)      | YES  |     | NULL    |                |
+| basic_pay   | double       | NO   |     | NULL    |                |
+| deduction   | double       | NO   |     | NULL    |                |
+| taxable_pay | double       | NO   |     | NULL    |                |
+| income_tax  | double       | NO   |     | NULL    |                |
+| net_pay     | double       | NO   |     | NULL    |                |
+| start       | date         | NO   |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+12 rows in set (22.51 sec)
 
 
 
