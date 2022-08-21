@@ -334,8 +334,27 @@ mysql> describe employee_payroll;
 12 rows in set (22.51 sec)
 
 
+------------------------------------------------------------------------------
+UC10 -> Ability to make Bhagyashree as part of Sales and Marketing Department
+------------------------------------------------------------------------------
 
 
+mysql> update employee_payroll set department = 'sales' where name = 'Bhagyashree';
+Query OK, 1 row affected (3.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> insert into employee_payroll(name,department,gender,basic_pay,deduction,taxable_pay,income_tax,net_pay,start)values
+    -> ('Bhagyashree','marketing','F',400000.00,200000.00,81000.00,500000.00,600000.00,'2017-06-07');
+Query OK, 1 row affected (0.36 sec)
+
+mysql> select *from employee_payroll where name ='Bhagyashree';
++----+-------------+-------------+---------+------------+--------+-----------+-----------+-------------+------------+---------+------------+
+| id | name        | phonenumber | address | department | gender | basic_pay | deduction | taxable_pay | income_tax | net_pay | start      |
++----+-------------+-------------+---------+------------+--------+-----------+-----------+-------------+------------+---------+------------+
+|  1 | Bhagyashree | NULL        | TBD     | sales      | F      |     15000 |         0 |           0 |          0 |       0 | 2017-06-07 |
+|  4 | Bhagyashree | NULL        | TBD     | marketing  | F      |    400000 |    200000 |       81000 |     500000 |  600000 | 2017-06-07 |
++----+-------------+-------------+---------+------------+--------+-----------+-----------+-------------+------------+---------+------------+
+2 rows in set (0.96 sec)
 
 
 
