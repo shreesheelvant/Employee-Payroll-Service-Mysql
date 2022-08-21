@@ -48,3 +48,15 @@ mysql> describe employee_payroll;
 | start  | date         | NO   |     | NULL    |                |
 +--------+--------------+------+-----+---------+----------------+
 4 rows in set (4.92 sec)
+
+
+-----------------------------------------------------------------------------------
+UC3 -> Inserted employee data in table employee_payroll of payroll_service database
+------------------------------------------------------------------------------------
+
+mysql> Insert into employee_payroll(name,salary,start)values
+    -> ('Bhagyashree',15000.0,'2017-06-07'),
+    -> ('Basavaraj',20000.0,'2018-10-08'),
+    -> ('Aishwarya',30000.0,'2019-09-05');
+Query OK, 3 rows affected (1.66 sec)
+Records: 3  Duplicates: 0  Warnings: 0
