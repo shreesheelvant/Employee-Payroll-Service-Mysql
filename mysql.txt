@@ -97,3 +97,122 @@ mysql> select * from employee_payroll where start between cast('2017-06-07' as d
 |  3 | Aishwarya   |  30000 | 2019-09-05 |
 +----+-------------+--------+------------+
 3 rows in set (0.13 sec)
+
+
+---------------------------------------------------------------------------------------
+UC6 -> Added gender field into table and updated the table according to employee gender 
+---------------------------------------------------------------------------------------
+
+mysql> alter table employee_payroll add gender char(1) after name;
+Query OK, 0 rows affected (6.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe employee_payroll;
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| id     | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(160) | NO   |     | NULL    |                |
+| gender | char(1)      | YES  |     | NULL    |                |
+| salary | double       | NO   |     | NULL    |                |
+| start  | date         | NO   |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
+5 rows in set (0.71 sec)
+
+mysql> update employee_payroll set gender ='F' where name ='Bhagyashree' or name='Aishwarya';
+Query OK, 2 rows affected (0.14 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update employee_payroll set gender = 'M' where name = 'Basavaraj';
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+-------------+--------+--------+------------+
+| id | name        | gender | salary | start      |
++----+-------------+--------+--------+------------+
+|  1 | Bhagyashree | F      |  15000 | 2017-06-07 |
+|  2 | Basavaraj   | M      |  20000 | 2018-10-08 |
+|  3 | Aishwarya   | F      |  30000 | 2019-09-05 |
++----+-------------+--------+--------+------------+
+3 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
