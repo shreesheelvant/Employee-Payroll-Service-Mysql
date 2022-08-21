@@ -137,7 +137,107 @@ mysql> select * from employee_payroll;
 +----+-------------+--------+--------+------------+
 3 rows in set (0.00 sec)
 
-mysql>
+
+--------------------------------------------------------------------------
+UC7 -> Found Sum,Average,Min,Max And Number of Male and Female Employees
+--------------------------------------------------------------------------
+
+
+mysql> select sum(salary) from employee_payroll where gender ='F' group by gender;
++-------------+
+| sum(salary) |
++-------------+
+|       45000 |
++-------------+
+1 row in set (0.13 sec)
+
+mysql> select sum(salary) from employee_payroll where gender ='M' group by gender;
++-------------+
+| sum(salary) |
++-------------+
+|       20000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from employee_payroll where gender ='F' group by gender;
++-------------+
+| avg(salary) |
++-------------+
+|       22500 |
++-------------+
+1 row in set (0.08 sec)
+
+mysql> select avg(salary) from employee_payroll where gender ='M' group by gender;
++-------------+
+| avg(salary) |
++-------------+
+|       20000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select min(salary) from employee_payroll where gender ='F' group by gender;
++-------------+
+| min(salary) |
++-------------+
+|       15000 |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> select min(salary) from employee_payroll where gender ='M' group by gender;
++-------------+
+| min(salary) |
++-------------+
+|       20000 |
++-------------+
+1 row in set (0.03 sec)
+
+
+mysql> select max(salary) from employee_payroll where gender ='F' group by gender;
++-------------+
+| max(salary) |
++-------------+
+|       30000 |
++-------------+
+1 row in set (0.13 sec)
+
+mysql> select max(salary) from employee_payroll where gender ='M' group by gender;
++-------------+
+| max(salary) |
++-------------+
+|       20000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select gender,avg(salary) from employee_payroll group by gender;
++--------+-------------+
+| gender | avg(salary) |
++--------+-------------+
+| F      |       22500 |
+| M      |       20000 |
++--------+-------------+
+2 rows in set (0.18 sec)
+
+mysql>  select gender,count(name) from employee_payroll group by gender;
++--------+-------------+
+| gender | count(name) |
++--------+-------------+
+| F      |           2 |
+| M      |           1 |
++--------+-------------+
+2 rows in set (0.03 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
