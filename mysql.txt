@@ -1,4 +1,10 @@
-create database payroll_service;
+"-----Welcome to Employee Payroll Service Program on MySQL DB---------------"
+----------------------------------------------------------------------------
+UC1 -> Create a Database payroll_service and show and used that  data base
+----------------------------------------------------------------------------
+
+
+mysql> create database payroll_service;
 Query OK, 1 row affected (17.20 sec)
 
 
@@ -17,3 +23,28 @@ mysql> show databases;
 
 mysql> use payroll_service;
 Database changed
+
+-------------------------------------------------------------------
+UC2 -> Created Table Employee_Payroll into Payroll_Service Database
+-------------------------------------------------------------------
+
+mysql> create table employee_payroll
+    -> (
+    -> id int unsigned NOT NULL AUTO_INCREMENT,
+    -> name varchar(160) NOT NULL,
+    -> salary double NOT NULL,
+    -> start date NOT NULL,
+    -> Primary key(id)
+    -> );
+Query OK, 0 rows affected (8.65 sec)
+
+mysql> describe employee_payroll;
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| id     | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(160) | NO   |     | NULL    |                |
+| salary | double       | NO   |     | NULL    |                |
+| start  | date         | NO   |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
+4 rows in set (4.92 sec)
